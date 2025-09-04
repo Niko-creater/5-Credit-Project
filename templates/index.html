@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Live Annotator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <h2>Web Live Annotator</h2>
+  <div class="muted">Source: <code>{{ source }}</code> · Server time: <span id="srvtime"></span></div>
+  <br/>
+  <div class="wrap">
+    <div class="card">
+      <img class="video" src="/stream.mjpg" alt="live video"/>
+      <div class="row" style="margin-top:10px;">
+        <button id="btnStart" class="primary">Start Session & Record</button>
+        <button id="btnStop" class="danger">Stop & Save & Quit</button>
+        <span class="badge">Elapsed: <span id="elapsed">0.00</span>s</span>
+        <span class="badge">Count: <span id="count">0</span></span>
+        <span class="muted">Recording <span id="rec" class="dot"></span></span>
+        <span id="status" class="muted"></span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row"><strong>Add Annotation</strong></div>
+      <div style="margin-top:8px;"><input id="txt" type="text" placeholder="Type text and press Enter or click Add"/></div>
+      <div class="row" style="margin-top:8px;"><button id="btnAdd" class="primary">Add</button></div>
+      <hr/>
+      <div class="row"><strong>Annotations</strong></div>
+      <div id="list" class="list"></div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
